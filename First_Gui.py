@@ -32,13 +32,16 @@ def download_playlist(url):
 # Define the function to open a URL in the default web browser
 def open_url(url):
     webbrowser.open(url)
+#Force Shut down The program
+def force_quit():
+    os._exit(0)
 
 # Define the menu items
 menu_items = [
     item('Download Video', lambda: threading.Thread(target=show_download_window, args=(download_video,)).start()),
     item('Download Playlist', lambda: threading.Thread(target=show_download_window, args=(download_playlist,)).start()),
     item('Open Website', lambda: open_url('https://example.com')),
-    item('Exit', lambda: pystray.quit()),
+    item('Exit', force_quit),
 ]
 
 # Define the system tray icon
